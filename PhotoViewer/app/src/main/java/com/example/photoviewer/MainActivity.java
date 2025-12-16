@@ -55,12 +55,6 @@ public class MainActivity extends AppCompatActivity {
     private final List<PostItem> postList = new ArrayList<>();
     private ImageAdapter adapter;
 
-    private String getNowIsoSeoul() {
-        java.time.ZonedDateTime now =
-                java.time.ZonedDateTime.now(java.time.ZoneId.of("Asia/Seoul"));
-        return now.toString();
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -295,9 +289,6 @@ public class MainActivity extends AppCompatActivity {
                 writeFormField(dos, boundary, "title", "mobile upload");
                 writeFormField(dos, boundary, "text", "모바일에서 업로드된 이미지입니다.");
 
-                String nowIso = getNowIsoSeoul();
-                writeFormField(dos, boundary, "created_date", nowIso);
-                writeFormField(dos, boundary, "published_date", nowIso);
                 // created_date는 서버에서 받아도 되지만(요청대로), 지금은 기존 코드 유지
                 // 서버가 default를 갖고 있으면 이 필드 없이도 저장됨
 

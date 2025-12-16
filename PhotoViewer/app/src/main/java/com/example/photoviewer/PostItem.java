@@ -15,7 +15,7 @@ public class PostItem implements Serializable {
 
     public String getDisplayDate() {
         // createdDate가 "2025-12-16T07:58:56.849683+09:00" 같은 형태라서 앞부분만 보여주기
-        if (createdDate == null) return "";
-        return createdDate.replace("T", " ").replace("+09:00", "");
+        if (publishedDate != null && !publishedDate.equals("null") && !publishedDate.isEmpty()) return publishedDate;
+        return createdDate;
     }
 }

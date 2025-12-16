@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.util.Log;
+import android.app.Activity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "PhotoViewer";
     private static final int REQ_CAMERA = 1001;
     private static final int REQ_CAMERA_PERMISSION = 2001;
+    private static final int REQ_DETAIL = 2001;
 
     TextView textView;
     RecyclerView recyclerView;

@@ -1,4 +1,5 @@
 package com.example.photoviewer;
+import com.bumptech.glide.Glide;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,7 +21,7 @@ import java.net.URL;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private static final String TAG = "PhotoViewer";
+    private static final String TAG = "스마트 이미지 블로그 기반 객체 감지 자동 게시 시스템";
 
     String site_url = "https://wjdwngml1001.pythonanywhere.com";
     String token = "480f25f025436cb673a16ac443f3868a245e7c14";
@@ -37,7 +38,9 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        detailImage = findViewById(R.id.detailImage);
+        ImageView imageView = findViewById(R.id.detailImage);
+        String imageUrl = getIntent().getStringExtra("image");
+
         detailDate  = findViewById(R.id.detailDate);
         editTitle   = findViewById(R.id.editTitle);
         editText    = findViewById(R.id.editText);
@@ -57,7 +60,11 @@ public class DetailActivity extends AppCompatActivity {
         // 여기선 기존 방식 유지: 간단히 URL만 로그. (네 프로젝트는 Glide 붙여서 쓰는 쪽이 좋아)
         // Glide 예시:
         // Glide.with(this).load(post.imageUrl).into(detailImage);
-
+        if (imageUrl != null && imageUrl.startsWith("http")) {
+            Glide.with(this)
+                    .load(imageUrl)
+                    .into(imageView);
+        }
         detailDate.setText(post.getDisplayDate());
         editTitle.setText(post.title);
         editText.setText(post.text);

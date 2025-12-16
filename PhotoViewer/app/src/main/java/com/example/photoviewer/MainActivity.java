@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
                         item.id=obj.optInt("id",0);
                         item.author = obj.optInt("author", 0);
                         item.title = obj.optString("title", "");
-                        item.text = obj.opdtString("text", "");
+                        item.text = obj.optString("text", "");
                         item.createdDate = obj.optString("created_date", "");
                         item.publishedDate = obj.optString("published_date", "");
                         item.imageUrl = obj.optString("image", "");
